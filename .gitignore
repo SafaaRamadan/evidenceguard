@@ -8,6 +8,7 @@ __pycache__/
 
 # Secrets and local config
 .env
+scratch/
 
 # Vector database and downloaded models (large, regenerated locally)
 chroma_db/
