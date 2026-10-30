@@ -1,0 +1,319 @@
+{
+  "name": "baseline",
+  "config": {
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "max_words": 120,
+    "overlap_words": 20,
+    "top_k": 3,
+    "chunk_count": 20
+  },
+  "summary": {
+    "overall": {
+      "n": 9,
+      "hits_at_1": 8,
+      "hits_at_3": 9,
+      "hit_at_1": 0.8888888888888888,
+      "hit_at_3": 1.0,
+      "recall_at_3": 0.9444444444444444,
+      "mrr": 0.925925925925926
+    },
+    "by_category": {
+      "answerable": {
+        "n": 6,
+        "hits_at_1": 5,
+        "hits_at_3": 6,
+        "hit_at_1": 0.8333333333333334,
+        "hit_at_3": 1.0,
+        "recall_at_3": 1.0,
+        "mrr": 0.888888888888889
+      },
+      "multi_chunk": {
+        "n": 3,
+        "hits_at_1": 3,
+        "hits_at_3": 3,
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "recall_at_3": 0.8333333333333334,
+        "mrr": 1.0
+      }
+    }
+  },
+  "per_question": [
+    {
+      "id": "q01",
+      "category": "answerable",
+      "latency_ms": 31.7,
+      "top_score": 0.914,
+      "retrieved": [
+        [
+          "qwen.md",
+          "Licensing"
+        ],
+        [
+          "qwen.md",
+          "Applications"
+        ],
+        [
+          "deepseek.md",
+          "Licensing"
+        ]
+      ],
+      "hit_at_1": 1.0,
+      "hit_at_3": 1.0,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q02",
+      "category": "multi_chunk",
+      "latency_ms": 22.1,
+      "top_score": 0.573,
+      "retrieved": [
+        [
+          "qwen.md",
+          "Licensing"
+        ],
+        [
+          "gemma.md",
+          "Licensing"
+        ],
+        [
+          "llama.md",
+          "Licensing"
+        ]
+      ],
+      "hit_at_1": 1.0,
+      "hit_at_3": 1.0,
+      "recall_at_3": 0.5,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q03",
+      "category": "answerable",
+      "latency_ms": 19.6,
+      "top_score": 0.574,
+      "retrieved": [
+        [
+          "llama.md",
+          "Overview"
+        ],
+        [
+          "llama.md",
+          "Licensing"
+        ],
+        [
+          "llama.md",
+          "Limitations"
+        ]
+      ],
+      "hit_at_1": 1.0,
+      "hit_at_3": 1.0,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q04",
+      "category": "answerable",
+      "latency_ms": 19.0,
+      "top_score": 0.49,
+      "retrieved": [
+        [
+          "gemma.md",
+          "Applications"
+        ],
+        [
+          "gemma.md",
+          "Limitations"
+        ],
+        [
+          "gemma.md",
+          "Overview"
+        ]
+      ],
+      "hit_at_1": 0.0,
+      "hit_at_3": 1.0,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 0.3333333333333333
+    },
+    {
+      "id": "q05",
+      "category": "answerable",
+      "latency_ms": 21.1,
+      "top_score": 0.756,
+      "retrieved": [
+        [
+          "mistral.md",
+          "Limitations"
+        ],
+        [
+          "mistral.md",
+          "Overview"
+        ],
+        [
+          "mistral.md",
+          "Applications"
+        ]
+      ],
+      "hit_at_1": 1.0,
+      "hit_at_3": 1.0,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q06",
+      "category": "answerable",
+      "latency_ms": 26.5,
+      "top_score": 0.607,
+      "retrieved": [
+        [
+          "deepseek.md",
+          "Limitations"
+        ],
+        [
+          "deepseek.md",
+          "Overview"
+        ],
+        [
+          "deepseek.md",
+          "Licensing"
+        ]
+      ],
+      "hit_at_1": 1.0,
+      "hit_at_3": 1.0,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q07",
+      "category": "answerable",
+      "latency_ms": 20.1,
+      "top_score": 0.73,
+      "retrieved": [
+        [
+          "qwen.md",
+          "Applications"
+        ],
+        [
+          "qwen.md",
+          "Overview"
+        ],
+        [
+          "qwen.md",
+          "Limitations"
+        ]
+      ],
+      "hit_at_1": 1.0,
+      "hit_at_3": 1.0,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q08",
+      "category": "multi_chunk",
+      "latency_ms": 20.5,
+      "top_score": 0.716,
+      "retrieved": [
+        [
+          "gemma.md",
+          "Limitations"
+        ],
+        [
+          "gemma.md",
+          "Applications"
+        ],
+        [
+          "gemma.md",
+          "Overview"
+        ]
+      ],
+      "hit_at_1": 1.0,
+      "hit_at_3": 1.0,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q09",
+      "category": "multi_chunk",
+      "latency_ms": 19.1,
+      "top_score": 0.705,
+      "retrieved": [
+        [
+          "deepseek.md",
+          "Licensing"
+        ],
+        [
+          "deepseek.md",
+          "Limitations"
+        ],
+        [
+          "deepseek.md",
+          "Overview"
+        ]
+      ],
+      "hit_at_1": 1.0,
+      "hit_at_3": 1.0,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q10",
+      "category": "absent",
+      "latency_ms": 14.9,
+      "top_score": 0.446,
+      "retrieved": [
+        [
+          "qwen.md",
+          "Applications"
+        ],
+        [
+          "qwen.md",
+          "Licensing"
+        ],
+        [
+          "qwen.md",
+          "Overview"
+        ]
+      ]
+    },
+    {
+      "id": "q11",
+      "category": "absent",
+      "latency_ms": 18.8,
+      "top_score": 0.454,
+      "retrieved": [
+        [
+          "llama.md",
+          "Overview"
+        ],
+        [
+          "llama.md",
+          "Licensing"
+        ],
+        [
+          "llama.md",
+          "Limitations"
+        ]
+      ]
+    },
+    {
+      "id": "q12",
+      "category": "ambiguous",
+      "latency_ms": 18.8,
+      "top_score": 0.26,
+      "retrieved": [
+        [
+          "qwen.md",
+          "Limitations"
+        ],
+        [
+          "deepseek.md",
+          "Licensing"
+        ],
+        [
+          "gemma.md",
+          "Overview"
+        ]
+      ]
+    }
+  ]
+}
