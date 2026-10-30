@@ -2,6 +2,7 @@ import math
 import pytest
 from research_agent.embeddings import Embedder
 
+pytestmark = pytest.mark.slow
 
 @pytest.fixture(scope="module")
 def embedder() -> Embedder:
