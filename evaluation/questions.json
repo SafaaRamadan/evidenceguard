@@ -1,0 +1,131 @@
+[
+  {
+    "id": "q01",
+    "question": "Under what license are Qwen3's open-weight models released?",
+    "category": "answerable",
+    "gold": [
+      {
+        "source": "qwen.md",
+        "section": "Licensing"
+      }
+    ]
+  },
+  {
+    "id": "q02",
+    "question": "According to the documents, which models are released under permissive licenses such as Apache 2.0 or MIT?",
+    "category": "multi_chunk",
+    "gold": [
+      {
+        "source": "qwen.md",
+        "section": "Licensing"
+      },
+      {
+        "source": "deepseek.md",
+        "section": "Licensing"
+      }
+    ]
+  },
+  {
+    "id": "q03",
+    "question": "How many parameters does the Llama 3.3 70B model have?",
+    "category": "answerable",
+    "gold": [
+      {
+        "source": "llama.md",
+        "section": "Overview"
+      }
+    ]
+  },
+  {
+    "id": "q04",
+    "question": "Can Gemma 3 take a picture as part of a user's question?",
+    "category": "answerable",
+    "gold": [
+      {
+        "source": "gemma.md",
+        "section": "Overview"
+      }
+    ]
+  },
+  {
+    "id": "q05",
+    "question": "What safety-related feature is missing from Mistral 7B Instruct v0.3?",
+    "category": "answerable",
+    "gold": [
+      {
+        "source": "mistral.md",
+        "section": "Limitations"
+      }
+    ]
+  },
+  {
+    "id": "q06",
+    "question": "What problems were observed in the original DeepSeek-R1-Zero model?",
+    "category": "answerable",
+    "gold": [
+      {
+        "source": "deepseek.md",
+        "section": "Limitations"
+      }
+    ]
+  },
+  {
+    "id": "q07",
+    "question": "Which tools or inference frameworks does the Qwen3 document mention for integrating the model into an application?",
+    "category": "answerable",
+    "gold": [
+      {
+        "source": "qwen.md",
+        "section": "Applications"
+      }
+    ]
+  },
+  {
+    "id": "q08",
+    "question": "What should a developer consider when choosing a Gemma 3 variant for an application that needs to work with images?",
+    "category": "multi_chunk",
+    "gold": [
+      {
+        "source": "gemma.md",
+        "section": "Overview"
+      },
+      {
+        "source": "gemma.md",
+        "section": "Limitations"
+      }
+    ]
+  },
+  {
+    "id": "q09",
+    "question": "What are the origins of DeepSeek-R1's smaller distilled versions, and what licensing issue should developers check before using them?",
+    "category": "multi_chunk",
+    "gold": [
+      {
+        "source": "deepseek.md",
+        "section": "Overview"
+      },
+      {
+        "source": "deepseek.md",
+        "section": "Licensing"
+      }
+    ]
+  },
+  {
+    "id": "q10",
+    "question": "How much did it cost to train Qwen3?",
+    "category": "absent",
+    "gold": []
+  },
+  {
+    "id": "q11",
+    "question": "What score did Llama 3.3 70B achieve on the MMLU benchmark?",
+    "category": "absent",
+    "gold": []
+  },
+  {
+    "id": "q12",
+    "question": "Which of these models would be the best choice for my application?",
+    "category": "ambiguous",
+    "gold": []
+  }
+]
