@@ -1,7 +1,4 @@
-"""Build the grounded prompt: numbered evidence plus rules for answering."""
-
 from dataclasses import dataclass
-
 from research_agent.index_store import SearchResult
 
 ABSTAIN_MESSAGE = (
