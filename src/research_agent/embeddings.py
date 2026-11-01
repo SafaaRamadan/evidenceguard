@@ -1,7 +1,6 @@
 import logging
 import time
 
-from sentence_transformers import SentenceTransformer
 
 logger = logging.getLogger(__name__)
 
@@ -11,6 +10,7 @@ DEFAULT_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 class Embedder:
     def __init__(self, model_name: str = DEFAULT_MODEL_NAME) -> None:
         start = time.perf_counter()
+        from sentence_transformers import SentenceTransformer  # heavy: import on first use
         self.model_name = model_name
         self._model = SentenceTransformer(model_name)
         logger.info("Loaded %s in %.1f s", model_name, time.perf_counter() - start)

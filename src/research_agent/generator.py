@@ -1,23 +1,17 @@
-"""Run a small local chat model to generate text."""
-
 import logging
 import time
 from dataclasses import dataclass
-
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
 
 logger = logging.getLogger(__name__)
 
 DEFAULT_LLM_NAME = "Qwen/Qwen2.5-0.5B-Instruct"
 DEFAULT_DTYPE = "bfloat16"
-SUPPORTED_DTYPES = {"float32": torch.float32, "bfloat16": torch.bfloat16}
+SUPPORTED_DTYPES = {"float32", "bfloat16"}
 
 
 @dataclass(frozen=True)
 class GenerationResult:
     """The generated text together with how it was produced."""
-
     text: str
     prompt_tokens: int
     new_tokens: int
@@ -30,7 +24,6 @@ class GenerationResult:
 
 class Generator:
     """Wraps one local chat model. Create it once, then reuse it."""
-
     def __init__(
         self, model_name: str = DEFAULT_LLM_NAME, dtype_name: str = DEFAULT_DTYPE
     ) -> None:
@@ -39,11 +32,14 @@ class Generator:
                 f"Unsupported dtype '{dtype_name}'. Choose from {sorted(SUPPORTED_DTYPES)}."
             )
         start = time.perf_counter()
+        import torch 
+        from transformers import AutoModelForCausalLM, AutoTokenizer
+        self._torch = torch
         self.model_name = model_name
         self.dtype_name = dtype_name
         self._tokenizer = AutoTokenizer.from_pretrained(model_name)
         self._model = AutoModelForCausalLM.from_pretrained(
-            model_name, dtype=SUPPORTED_DTYPES[dtype_name]
+            model_name, dtype=getattr(torch, dtype_name)
         )
         self._model.eval()
         logger.info(
@@ -66,7 +62,7 @@ class Generator:
         prompt_tokens = inputs["input_ids"].shape[1]
 
         start = time.perf_counter()
-        with torch.inference_mode():
+        with self._torch.inference_mode():
             output = self._model.generate(
                 **inputs, max_new_tokens=max_new_tokens, do_sample=False
             )
