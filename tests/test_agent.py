@@ -1,5 +1,4 @@
 import pytest
-
 from research_agent.agent import EvidenceAgent
 from research_agent.generator import GenerationResult
 from research_agent.index_store import SearchResult
