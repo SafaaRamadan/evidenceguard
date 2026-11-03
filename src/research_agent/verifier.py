@@ -6,6 +6,7 @@ from research_agent.prompting import ABSTAIN_MESSAGE
 CITATION_PATTERN = re.compile(r"\[\s*(E\d+(?:\s*,\s*E\d+)*)\s*\]")
 ID_PATTERN = re.compile(r"E\d+")
 SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+|\n+")
+MAX_HEADER_WORDS = 12
 HAS_WORD = re.compile(r"\w")
 
 
@@ -39,6 +40,15 @@ def strip_citations(answer: str) -> str:
     return CITATION_PATTERN.sub("", answer)
 
 
+def _is_header_only(text: str) -> bool:
+    """True for a lone "Title > Section" line copied from the evidence, not an answer."""
+    return (
+        "\n" not in text
+        and " > " in text
+        and len(text.split()) <= MAX_HEADER_WORDS
+        and text[-1] not in ".!?"
+    )
+
 def check_citations(answer: str, valid_ids: set[str]) -> CitationReport:
     """Check an answer's citations against the evidence IDs that were offered."""
     answer = answer.strip()
@@ -57,9 +67,12 @@ def check_citations(answer: str, valid_ids: set[str]) -> CitationReport:
         if has_text and not CITATION_PATTERN.search(sentence):
             uncited.append(sentence)
 
+    remainder = strip_citations(answer).strip()
     issues = []
-    if not HAS_WORD.search(strip_citations(answer)):
+    if not HAS_WORD.search(remainder):
         issues.append("no_content")
+    elif _is_header_only(remainder):
+        issues.append("header_only")
     if not cited:
         issues.append("no_citations")
     if invalid:
