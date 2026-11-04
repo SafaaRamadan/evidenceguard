@@ -1,0 +1,20 @@
+# Versions marked (tested) were run together in a sandbox with fake models.
+# Versions marked (yours) are the ones from the original Windows setup.
+# After installing, run `python -m pytest` before trusting this file.
+
+# Models and retrieval (yours)
+sentence-transformers==6.2.0
+transformers==5.22.1
+torch==2.15.0
+chromadb==1.5.9
+
+# Agent and API (tested)
+langgraph==1.2.19
+fastapi==0.162.0
+uvicorn==0.54.0
+httpx==0.28.1
+pydantic==2.14.2
+
+# Tooling
+psutil==7.2.2
+pytest==9.2.0
